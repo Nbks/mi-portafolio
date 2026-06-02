@@ -12,7 +12,6 @@ interface Props {
 }
 
 const { lang, title, description, currentPage = 'home', t } = Astro.props;
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <!DOCTYPE html>
@@ -31,25 +30,25 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   <div class="max-w-[760px] mx-auto px-8">
     <nav class="py-8 border-b border-border">
       <div class="flex justify-between items-center gap-4">
-        <a href={`${base}/${lang}`} class="font-mono text-sm text-accent no-underline tracking-wide">LG.dev</a>
+        <a href={`/${lang}`} class="font-mono text-sm text-accent no-underline tracking-wide">LG.dev</a>
         <div class="flex items-center gap-8">
           <ul class="flex gap-8 list-none max-sm:hidden">
             <li>
-              <a href={`${base}/${lang}`} class={`font-mono text-sm no-underline tracking-wide transition-colors duration-200 ${currentPage === 'home' ? 'text-white' : 'text-gray hover:text-white'}`}>{t.nav_projects}</a>
+              <a href={`/${lang}`} class={`font-mono text-sm no-underline tracking-wide transition-colors duration-200 ${currentPage === 'home' ? 'text-white' : 'text-gray hover:text-white'}`}>{t.nav_projects}</a>
             </li>
             <li>
-              <a href={`${base}/${lang}/about`} class={`font-mono text-sm no-underline tracking-wide transition-colors duration-200 ${currentPage === 'about' ? 'text-white' : 'text-gray hover:text-white'}`}>{t.nav_about}</a>
+              <a href={`/${lang}/about`} class={`font-mono text-sm no-underline tracking-wide transition-colors duration-200 ${currentPage === 'about' ? 'text-white' : 'text-gray hover:text-white'}`}>{t.nav_about}</a>
             </li>
             <li>
               <a href="mailto:tu@email.com" class="font-mono text-sm text-gray no-underline tracking-wide transition-colors duration-200 hover:text-white">{t.nav_contact}</a>
             </li>
           </ul>
           <div class="flex items-center gap-2 font-mono text-xs">
-            <a href={`${base}/es${currentPage === 'about' ? '/about' : ''}`} class={`no-underline tracking-wide transition-colors duration-200 ${lang === 'es' ? 'text-accent pointer-events-none' : 'text-gray hover:text-white'}`}>es</a>
+            <a href={`/es${currentPage === 'about' ? '/about' : ''}`} class={`no-underline tracking-wide transition-colors duration-200 ${lang === 'es' ? 'text-accent pointer-events-none' : 'text-gray hover:text-white'}`}>es</a>
             <span class="text-border select-none">|</span>
-            <a href={`${base}/en${currentPage === 'about' ? '/about' : ''}`} class={`no-underline tracking-wide transition-colors duration-200 ${lang === 'en' ? 'text-accent pointer-events-none' : 'text-gray hover:text-white'}`}>en</a>
+            <a href={`/en${currentPage === 'about' ? '/about' : ''}`} class={`no-underline tracking-wide transition-colors duration-200 ${lang === 'en' ? 'text-accent pointer-events-none' : 'text-gray hover:text-white'}`}>en</a>
             <span class="text-border select-none">|</span>
-            <a href={`${base}/it${currentPage === 'about' ? '/about' : ''}`} class={`no-underline tracking-wide transition-colors duration-200 ${lang === 'it' ? 'text-accent pointer-events-none' : 'text-gray hover:text-white'}`}>it</a>
+            <a href={`/it${currentPage === 'about' ? '/about' : ''}`} class={`no-underline tracking-wide transition-colors duration-200 ${lang === 'it' ? 'text-accent pointer-events-none' : 'text-gray hover:text-white'}`}>it</a>
           </div>
         </div>
       </div>
