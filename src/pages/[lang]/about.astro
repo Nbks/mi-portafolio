@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import { locales, getLangFromParams, useTranslations } from '../../i18n/utils';
 import { experience } from '../../data/experience';
 import { skills } from '../../data/skills';
+import profileImg from '../../assets/profile.jpeg';
 
 export function getStaticPaths() {
   return locales.map((lang) => ({ params: { lang } }));
@@ -15,11 +16,14 @@ const t = useTranslations(lang);
 <Layout {lang} title={`Lucas Giavelli — ${t.nav_about}`} description={t.hero_bio} currentPage="about" {t}>
 
   <!-- PAGE HEADER -->
-  <header class="py-8 pb-16 border-b border-border animate-fade-up">
-    <p class="font-mono text-xs text-accent tracking-widest uppercase mb-6">Lucas Giavelli</p>
-    <h1 class="font-display text-[clamp(3rem,8vw,5.5rem)] font-black leading-[0.95] tracking-tighter">
-      {t.about_title_p1}<br /><em class="italic text-accent">{t.about_title_p2}</em>
-    </h1>
+  <header class="py-8 pb-16 border-b border-border animate-fade-up flex items-end gap-40 max-sm:gap-15">
+    <div>
+      <p class="font-mono text-xs text-accent tracking-widest uppercase mb-6">Lucas Giavelli</p>
+      <h1 class="font-display text-[clamp(3rem,8vw,5.5rem)] font-black leading-[0.95] tracking-tighter">
+        {t.about_title_p1}<br /><em class="italic text-accent">{t.about_title_p2}</em>
+      </h1>
+    </div>
+    <img src={profileImg.src} alt="Lucas Giavelli" class="w-36 h-36 sm:w-58 sm:h-58 rounded-full object-cover border-2 border-border shrink-0 max-sm:rounded-lg max-sm:w-28 max-sm:h-36" />
   </header>
 
   <!-- BIO -->

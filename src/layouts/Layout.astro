@@ -31,7 +31,7 @@ const { lang, title, description, currentPage = 'home', t } = Astro.props;
     <nav class="py-8 border-b border-border">
       <div class="flex justify-between items-center gap-4">
         <a href={`/${lang}`} class="font-mono text-sm text-accent no-underline tracking-wide">LG.dev</a>
-        <div class="flex items-center gap-8">
+        <div class="flex items-center gap-8 max-sm:gap-3">
           <ul class="flex gap-8 list-none max-sm:hidden">
             <li>
               <a href={`/${lang}`} class={`font-mono text-sm no-underline tracking-wide transition-colors duration-200 ${currentPage === 'home' ? 'text-white' : 'text-gray hover:text-white'}`}>{t.nav_projects}</a>
@@ -50,7 +50,23 @@ const { lang, title, description, currentPage = 'home', t } = Astro.props;
             <span class="text-border select-none">|</span>
             <a href={`/it${currentPage === 'about' ? '/about' : ''}`} class={`no-underline tracking-wide transition-colors duration-200 ${lang === 'it' ? 'text-accent pointer-events-none' : 'text-gray hover:text-white'}`}>it</a>
           </div>
+          <button id="menu-btn" class="sm:hidden font-mono text-sm text-gray hover:text-white cursor-pointer bg-transparent border-none p-1 leading-none" aria-label="Menu">
+            <span id="menu-icon">☰</span>
+          </button>
         </div>
+      </div>
+      <div id="mobile-menu" class="hidden sm:hidden pt-6 pb-2">
+        <ul class="flex flex-col gap-5 list-none">
+          <li>
+            <a href={`/${lang}`} class={`font-mono text-sm no-underline tracking-wide transition-colors duration-200 ${currentPage === 'home' ? 'text-white' : 'text-gray hover:text-white'}`}>{t.nav_projects}</a>
+          </li>
+          <li>
+            <a href={`/${lang}/about`} class={`font-mono text-sm no-underline tracking-wide transition-colors duration-200 ${currentPage === 'about' ? 'text-white' : 'text-gray hover:text-white'}`}>{t.nav_about}</a>
+          </li>
+          <li>
+            <a href="mailto:tu@email.com" class="font-mono text-sm text-gray no-underline tracking-wide transition-colors duration-200 hover:text-white">{t.nav_contact}</a>
+          </li>
+        </ul>
       </div>
     </nav>
   </div>
@@ -65,9 +81,22 @@ const { lang, title, description, currentPage = 'home', t } = Astro.props;
       <div class="flex gap-6">
         <a href="https://github.com/Nbks" target="_blank" rel="noopener" class="font-mono text-xs text-gray no-underline transition-colors duration-200 hover:text-white">GitHub</a>
         <a href="https://linkedin.com/in/tu-perfil" target="_blank" rel="noopener" class="font-mono text-xs text-gray no-underline transition-colors duration-200 hover:text-white">LinkedIn</a>
-        <a href="mailto:tu@email.com" class="font-mono text-xs text-gray no-underline transition-colors duration-200 hover:text-white">Email</a>
+        <a href="mailto:lucasgiavelli98@gmail.com" class="font-mono text-xs text-gray no-underline transition-colors duration-200 hover:text-white">Email</a>
       </div>
     </footer>
   </div>
+  <script>
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    const icon = document.getElementById('menu-icon');
+    if (btn && menu && icon) {
+      btn.addEventListener('click', () => {
+        const isOpen = !menu.classList.contains('hidden');
+        menu.classList.toggle('hidden');
+        icon.textContent = isOpen ? '☰' : '✕';
+        btn.setAttribute('aria-expanded', String(!isOpen));
+      });
+    }
+  </script>
 </body>
 </html>

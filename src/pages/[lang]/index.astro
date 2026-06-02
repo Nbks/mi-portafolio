@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import { locales, getLangFromParams, useTranslations } from '../../i18n/utils';
 import { projects } from '../../data/projects';
+import cv from '../../assets/Cv-Lucas-Giavelli-en.pdf';
 
 export function getStaticPaths() {
   return locales.map((lang) => ({ params: { lang } }));
@@ -25,7 +26,7 @@ const t = useTranslations(lang);
       <a href="https://github.com/Nbks" class="font-mono text-xs text-white no-underline tracking-wide px-4 py-2 border transition-colors duration-200 hover:border-accent hover:text-accent bg-accent border-accent" target="_blank" rel="noopener">GitHub</a>
       <a href="https://www.linkedin.com/in/lucas-giavelli-0b03821aa" class="font-mono text-xs text-white no-underline tracking-wide px-4 py-2 border border-border transition-colors duration-200 hover:border-accent hover:text-accent" target="_blank" rel="noopener">LinkedIn</a>
       <a href="mailto:lucasgiavelli98@gmail.com" class="font-mono text-xs text-white no-underline tracking-wide px-4 py-2 border border-border transition-colors duration-200 hover:border-accent hover:text-accent">{t.nav_contact}</a>
-      <a href="/cv.pdf" class="font-mono text-xs text-white no-underline tracking-wide px-4 py-2 border border-border transition-colors duration-200 hover:border-accent hover:text-accent" target="_blank">CV</a>
+      <a href={cv} download class="font-mono text-xs text-white no-underline tracking-wide px-4 py-2 border border-border transition-colors duration-200 hover:border-accent hover:text-accent">CV</a>
     </div>
   </section>
 
