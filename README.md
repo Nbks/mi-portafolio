@@ -1,61 +1,55 @@
-# Portafolio Personal - Lucas Giavelli
+# Personal Portfolio - Lucas Giavelli
 
-Portafolio personal desarrollado con Astro, diseñado para mostrar mis proyectos y habilidades como desarrollador frontend.
+Personal portfolio built with [Astro](https://astro.build/), designed to showcase my projects and skills as a full-stack developer.
 
-## 🎯 Acerca de este proyecto
+## Features
 
-Este portafolio está construido con [Astro](https://astro.build/) y está disponible en español, inglés e italiano. Incluye una sección de proyectos, información personal y enlaces a mis redes profesionales.
+- **Framework**: Astro 5.x with TypeScript
+- **Styling**: Tailwind CSS 4.x
+- **Internationalization**: Multi-language support (es, en, it)
+- **Deployment**: GitHub Pages via GitHub Actions
+- **Optimization**: Static site generation with optimized performance
 
-## 🚀 Características
-
-- **Framework**: Astro 5.x con TypeScript
-- **Estilos**: Tailwind CSS 4.x + CSS vanilla
-- **Internacionalización**: Soporte multiidioma (es, en, it)
-- **Despliegue**: GitHub Pages
-- **Optimización**: Generación estática y rendimiento optimizado
-
-## 📁 Estructura del proyecto
+## Project Structure
 
 ```text
 /
 ├── src/
-│   ├── assets/              # Archivos estáticos (imágenes, logos)
-│   │   ├── astro.svg        # Logo de Astro
-│   │   └── background.svg   # Imagen de fondo
-│   ├── components/          # Componentes reutilizables
-│   │   └── Welcome.astro    # Componente de bienvenida
-│   ├── i18n/               # Archivos de traducción
-│   │   ├── es.ts           # Traducciones en español
-│   │   ├── en.ts           # Traducciones en inglés
-│   │   └── it.ts           # Traducciones en italiano
-│   ├── layouts/            # Layouts base de páginas
-│   │   └── Layout.astro     # Layout principal
-│   ├── pages/              # Páginas del sitio
-│   │   └── index.astro      # Página de inicio
-│   └── styles/             # Estilos globales
-│       └── global.css       # CSS global con variables
-├── dist/                  # Build de producción (generado)
-├── public/               # Archivos estáticos
-│   └── favicon.svg        # Icono del sitio
-├── package.json          # Dependencias y scripts
-└── astro.config.mjs      # Configuración de Astro
+│   ├── assets/              # Static assets (images, favicon)
+│   ├── components/          # Reusable UI components
+│   ├── data/                # Typed data (projects, experience, skills)
+│   ├── i18n/                # Translation files (es.ts, en.ts, it.ts)
+│   ├── layouts/             # Page layouts
+│   │   └── Layout.astro     # Main layout (nav, footer, head)
+│   ├── pages/               # Route pages
+│   │   ├── [lang]/
+│   │   │   ├── index.astro  # Home page
+│   │   │   └── about.astro  # About page
+│   │   └── index.astro      # Redirect to default locale
+│   └── styles/              # Global styles
+│       └── global.css       # Tailwind + custom theme
+├── public/                  # Static files
+│   ├── favicon.svg
+│   └── favicon.ico
+├── package.json
+└── astro.config.mjs
 ```
 
-## 🧞 Comandos disponibles
+## Commands
 
-| Comando            | Acción                                           |
+| Command            | Action                                           |
 | :----------------- | :----------------------------------------------- |
-| `npm install`      | Instala dependencias                             |
-| `npm run dev`      | Inicia servidor local en `localhost:4321`        |
-| `npm run build`    | Genera sitio estático en `./dist/`              |
-| `npm run preview`  | Previsualiza el build localmente                 |
-| `npm run astro`    | Comandos CLI de Astro                            |
+| `npm install`      | Install dependencies                             |
+| `npm run dev`      | Start local server at `localhost:4321`            |
+| `npm run build`    | Build static site to `./dist/`                   |
+| `npm run preview`  | Preview production build locally                  |
+| `npm run astro`    | Run Astro CLI commands                           |
 
-## 🚀 Despliegue
+## Deployment
 
-El proyecto se despliega automáticamente en GitHub Pages usando GitHub Actions.
+Automatically deployed to GitHub Pages via GitHub Actions.
 
-## 📚 Más información
+## Links
 
 - [Astro Documentation](https://docs.astro.build)
 - [GitHub Repository](https://github.com/Nbks/mi-portafolio)
