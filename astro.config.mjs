@@ -9,7 +9,7 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
   site: 'https://Nbks.github.io',
-  base: '/', 
+  base: '/mi-portafolio', 
   i18n: {
   defaultLocale: 'es',
   locales: ['es', 'en', 'it'],
