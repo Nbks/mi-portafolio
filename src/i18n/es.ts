@@ -24,9 +24,11 @@ export const translations = {
   about_skills: "skills",
   about_experience: "experince",
   about_bio: "Soy Backend Engineer con experiencia en el diseño de arquitecturas y APIs para aplicaciones escalables.",
-  bio_p1: " Actualmente trabajo en una consultora de software, desarrollando sistemas con Spring Boot y Angular y participando en proyectos basados en microservicios y cloud.",
-  bio_p2: "He trabajado en aplicaciones IoT que procesan datos de sensores en tiempo real, integrando backend, mobile y servicios en la nube. Mi stack principal incluye Spring Boot, PostgreSQL, Docker y AWS, y tengo experiencia trabajando con Angular y Node.js.",
-  about_interests: "interest",
-  interests_p1: "interes pf1"
+  bio_p1: "Soy un programador argentino radicado en Turín. Estudié ingeniería en Argentina y me especialicé en sistemas backend en Italia, un camino que me ha dado tanto una base técnica sólida como la flexibilidad para adaptarme a distintos entornos y equipos.",
+  bio_p2: "Actualmente trabajo en una empresa de software, donde vengo manejando diversas áreas desde hace más de dos años: desarrollo, despliegues, automatización y diseño de software. Me he acostumbrado a alternar entre distintas responsabilidades y a tener una visión más amplia del proyecto que va más allá del código.",
+  bio_p3: "Me tomo el tiempo para entender bien un problema antes de escribir una línea de código. Disfruto debatir la arquitectura de un proyecto, pensar las decisiones con el equipo y llegar a soluciones limpias y razonadas. Valoro los equipos donde los roles están definidos y cada uno tiene claro su área de responsabilidad.",
+  bio_p4: "Proyectos con desafíos técnicos reales, donde el debate y la colaboración sean parte del proceso. Entornos de trabajo claros, con buena comunicación y cultura de código limpio.",
+  about_interests: "intereses",
+  interests_p1: "Me apasiona la exploración cultural y el aprendizaje global a través de los viajes. A nivel personal, practico boxeo, una disciplina que me ha ayudado a desarrollar resiliencia, concentración y perseverancia en todos los aspectos de mi vida."
 
 }

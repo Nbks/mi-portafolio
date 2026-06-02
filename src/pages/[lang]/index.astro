@@ -1,7 +1,7 @@
 ---
-// src/pages/[lang]/index.astro
 import Layout from '../../layouts/Layout.astro';
 import { locales, getLangFromParams, useTranslations } from '../../i18n/utils';
+import { projects } from '../../data/projects';
 
 export function getStaticPaths() {
   return locales.map((lang) => ({ params: { lang } }));
@@ -9,221 +9,58 @@ export function getStaticPaths() {
 
 const lang = getLangFromParams(Astro.params);
 const t = useTranslations(lang);
-
-const projects = [
-  {
-    title: "Launch",
-    year: "2026",
-    description: {
-      es: "Plataforma de ventas online con carrito, pagos y panel de administración.",
-      en: "A simple CLI tool to manage and open development projects with predefined tool profiles.",
-      it: "Piattaforma di vendita online con carrello, pagamenti e pannello di amministrazione.",
-    },
-    tags: ["Go", "CLI"],
-    url: "https://github.com/Nbks/launch",
-    demo: "https://demo.com",
-  },
-  {
-    title: "English Coach",
-    year: "2026",
-    description: {
-      es: "App de gestión de tareas con drag & drop, etiquetas y sincronización en tiempo real.",
-      en: "A personal Python CLI tool to transcribe, analyze, and track your daily English-speaking practice videos. Records your progress over time with detailed AI feedback.",
-      it: "App di gestione attività con drag & drop, etichette e sincronizzazione in tempo reale.",
-    },
-    tags: ["Python", "CLI", "AI" ],
-    url: "https://github.com/Nbks/english-coach",
-  },
-  {
-    title: "Portfolio 2026",
-    year: "2026",
-    description: {
-      es: "Versión anterior de mi portafolio personal. Diseño minimalista y animaciones CSS.",
-      en: "Previous version of my personal portfolio. Minimalist design and CSS animations.",
-      it: "Versione precedente del mio portfolio personale. Design minimalista e animazioni CSS.",
-    },
-    tags: ["HTML", "CSS", "JavaScript"],
-    url: "hhttps://github.com/Nbks/mi-portafolio",
-  },
-];
 ---
 
 <Layout {lang} title="Lucas Giavelli — Full-stack Developer" description={t.hero_bio} currentPage="home" {t}>
 
-  <style slot="head">
-    .hero {
-      padding: 2rem 0 4rem;
-      border-bottom: 1px solid var(--border);
-      animation: fadeUp 0.7s ease both;
-    }
-    .hero-eyebrow {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--accent);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-    }
-    .hero-name {
-      font-family: var(--font-display);
-      font-size: clamp(3rem, 8vw, 5.5rem);
-      font-weight: 900;
-      line-height: 0.95;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.25rem;
-    }
-    .hero-name em { font-style: italic; color: var(--accent); }
-    .hero-tagline {
-      font-family: var(--font-display);
-      font-size: clamp(1.2rem, 3vw, 1.7rem);
-      font-weight: 700;
-      font-style: italic;
-      color: var(--gray);
-      margin-bottom: 2rem;
-      line-height: 1.3;
-    }
-    .hero-bio {
-      font-size: 1rem;
-      color: #a0a0a0;
-      max-width: 480px;
-      line-height: 1.7;
-      margin-bottom: 2.5rem;
-    }
-    .hero-links { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-    .hero-link {
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      color: var(--white);
-      text-decoration: none;
-      letter-spacing: 0.05em;
-      padding: 0.5rem 1rem;
-      border: 1px solid var(--border);
-      transition: border-color 0.2s, color 0.2s, background 0.2s;
-    }
-    .hero-link:hover { border-color: var(--accent); color: var(--accent); }
-    .hero-link.primary { background: var(--accent); border-color: var(--accent); color: var(--white); }
-    .hero-link.primary:hover { background: transparent; color: var(--accent); }
+  <!-- HERO -->
+  <section class="py-8 pb-16 border-b border-border animate-fade-up">
+    <p class="font-mono text-xs text-accent tracking-widest uppercase mb-6">{t.hero_eyebrow}</p>
+    <h1 class="font-display text-[clamp(3rem,8vw,5.5rem)] font-black leading-[0.95] tracking-tighter mb-1">
+      Lucas<br /><em class="italic text-accent">Giavelli</em>
+    </h1>
+    <p class="font-display text-[clamp(1.2rem,3vw,1.7rem)] font-bold italic text-gray mb-8 leading-tight">{t.hero_tagline}</p>
+    <p class="text-base text-[#a0a0a0] max-w-[480px] leading-relaxed mb-10">{t.hero_bio}</p>
+    <div class="flex flex-wrap gap-3">
+      <a href="https://github.com/Nbks" class="font-mono text-xs text-white no-underline tracking-wide px-4 py-2 border transition-colors duration-200 hover:border-accent hover:text-accent bg-accent border-accent" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/lucas-giavelli-0b03821aa" class="font-mono text-xs text-white no-underline tracking-wide px-4 py-2 border border-border transition-colors duration-200 hover:border-accent hover:text-accent" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:lucasgiavelli98@gmail.com" class="font-mono text-xs text-white no-underline tracking-wide px-4 py-2 border border-border transition-colors duration-200 hover:border-accent hover:text-accent">{t.nav_contact}</a>
+      <a href="/cv.pdf" class="font-mono text-xs text-white no-underline tracking-wide px-4 py-2 border border-border transition-colors duration-200 hover:border-accent hover:text-accent" target="_blank">CV</a>
+    </div>
+  </section>
 
-    .section-header {
-      display: flex;
-      align-items: baseline;
-      gap: 1rem;
-      margin-bottom: 3rem;
-    }
-
-    .section-title {
-      font-family: var(--font-display);
-      font-size: 2rem;
-      font-weight: 900;
-      letter-spacing: -0.02em;
-    }
-
-    .section-count {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--accent);
-    }
-    .projects-section { padding: 4rem 0; animation: fadeUp 0.7s 0.15s ease both; }
-
-    .project-list {
-      padding: 0;
-      list-style: none; }
-    .project-item {
-      border-top: 1px solid var(--border);
-      padding: 2rem 0;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 1rem;
-      align-items: start;
-      position: relative;
-    }
-    .project-item::before {
-      content: '';
-      position: absolute;
-      left: -2rem; right: -2rem; top: 0; bottom: 0;
-      background: transparent;
-      transition: background 0.2s;
-      z-index: -1;
-    }
-    .project-item:hover::before { background: #111; }
-    .project-item:hover .project-title { color: var(--accent); }
-    .project-title {
-      font-family: var(--font-display);
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 0.4rem;
-      transition: color 0.2s;
-    }
-    .project-title a { color: inherit; text-decoration: none; }
-    .project-description { font-size: 0.9rem; color: #888; line-height: 1.6; margin-bottom: 0.75rem; max-width: 520px; }
-    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .project-meta { text-align: right; display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-end; }
-    .project-year { font-family: var(--font-mono); font-size: 0.75rem; color: var(--gray); }
-    .project-links { display: flex; gap: 0.5rem; }
-    .project-link {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--gray);
-      text-decoration: none;
-      letter-spacing: 0.05em;
-      transition: color 0.2s;
-    }
-    .project-link:hover { color: var(--accent); }
-
-    @media (max-width: 600px) {
-      .project-item { grid-template-columns: 1fr; }
-      .project-meta { flex-direction: row; align-items: center; text-align: left; }
-    }
-  </style>
-
-  <div class="container">
-
-    <!-- HERO -->
-    <section class="hero">
-      <p class="hero-eyebrow">{t.hero_eyebrow}</p>
-      <h1 class="hero-name">Lucas<br /><em>Giavelli</em></h1>
-      <p class="hero-tagline">{t.hero_tagline}</p>
-      <p class="hero-bio">{t.hero_bio}</p>
-      <div class="hero-links">
-        <a href="https://github.com/Nbks" class="hero-link primary" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://linkedin.com/in/tu-perfil" class="hero-link" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="mailto:tu@email.com" class="hero-link">{t.nav_contact}</a>
-        <a href="/cv.pdf" class="hero-link" target="_blank">CV</a>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section class="projects-section" id="projects">
-      <div class="section-header">
-        <h2 class="section-title">{t.projects_title}</h2>
-        <span class="section-count">({projects.length})</span>
-      </div>
-      <ul class="project-list">
-        {projects.map((project) => (
-          <li class="project-item">
-            <div class="project-info">
-              <h3 class="project-title">
-                <a href={project.url} target="_blank" rel="noopener">{project.title}</a>
-              </h3>
-              <p class="project-description">{project.description[lang]}</p>
-              <div class="project-tags">
-                {project.tags.map((tag) => <span class="tag">{tag}</span>)}
-              </div>
+  <!-- PROJECTS -->
+  <section class="py-16 animate-fade-up-delay" id="projects">
+    <div class="flex items-baseline gap-4 mb-12">
+      <h2 class="font-display text-[2rem] font-black tracking-tighter">{t.projects_title}</h2>
+      <span class="font-mono text-xs text-accent">({projects.length})</span>
+    </div>
+    <ul class="list-none p-0">
+      {projects.map((project) => (
+        <li class="group grid grid-cols-[1fr_auto] gap-4 items-start border-t border-border py-8 -mx-8 px-8 hover:bg-[#111] transition-colors duration-200 max-sm:grid-cols-1">
+          <div>
+            <h3 class="font-display text-xl font-bold mb-1 group-hover:text-accent transition-colors duration-200">
+              <a href={project.url} target="_blank" rel="noopener" class="text-inherit no-underline">{project.title}</a>
+            </h3>
+            <p class="text-sm text-[#888] leading-relaxed mb-3 max-w-[520px]">{project.description[lang]}</p>
+            <div class="flex flex-wrap gap-1.5">
+              {project.tags.map((tag) => (
+                <span class="font-mono text-[0.7rem] text-gray border border-border px-2 py-0.5 tracking-wide">{tag}</span>
+              ))}
             </div>
-            <div class="project-meta">
-              <span class="project-year">{project.year}</span>
-              <div class="project-links">
-                <a href={project.url} class="project-link" target="_blank" rel="noopener">{t.project_repo} ↗</a>
-                {project.demo && (
-                  <a href={project.demo} class="project-link" target="_blank" rel="noopener">{t.project_demo} ↗</a>
-                )}
-              </div>
+          </div>
+          <div class="text-right flex flex-col gap-2 items-end max-sm:flex-row max-sm:items-center max-sm:text-left">
+            <span class="font-mono text-xs text-gray whitespace-nowrap">{project.year}</span>
+            <div class="flex gap-2">
+              <a href={project.url} class="font-mono text-[0.7rem] text-gray no-underline tracking-wide transition-colors duration-200 hover:text-accent" target="_blank" rel="noopener">{t.project_repo} ↗</a>
+              {project.demo && (
+                <a href={project.demo} class="font-mono text-[0.7rem] text-gray no-underline tracking-wide transition-colors duration-200 hover:text-accent" target="_blank" rel="noopener">{t.project_demo} ↗</a>
+              )}
             </div>
-          </li>
-        ))}
-      </ul>
-    </section>
-
-  </div>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
 
 </Layout>
