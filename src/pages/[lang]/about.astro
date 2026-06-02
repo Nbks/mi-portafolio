@@ -1,0 +1,187 @@
+---
+// src/pages/[lang]/about.astro
+import Layout from '../../layouts/Layout.astro';
+import { locales, getLangFromParams, useTranslations } from '../../i18n/utils';
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const lang = getLangFromParams(Astro.params);
+const t = useTranslations(lang);
+
+const experience = [
+  {
+    company: "Interlogic",
+    role:        { es: "Desarrollador Fullstack",    en: "Fullstack Developer",      it: "Sviluppatore Fullstack" },
+    period: " feb 2024 — Presente",
+    description: {
+      es: "Descripción de tus responsabilidades y logros en este puesto.",
+      en: "Specialist in software architecture, microservices, and the deployment of scalable solutions that integrate AI, IoT, and advanced security.",
+      it: "Descrizione delle tue responsabilità e risultati in questo ruolo.",
+    }
+  }
+];
+
+const skills = {
+  es: [
+    { category: "Backend",          items: ["Spring boot","Java","Node.js", "Express", "REST APIs", "Python", "Ollama"] },
+    { category: "Frontend",         items: ["Angular", "React", "TypeScript", "Tailwind CSS", "HTML/CSS"] },
+    { category: "Herramientas",     items: ["Git", "GitHub", "Figma", "Kubernets"] },
+    { category: "Bases de datos",   items: ["MongoDB", "MariaDB", "PostgreSQL"] },
+  ],
+  en: [
+    { category: "Backend",          items: ["Spring boot","Java","Node.js", "Express", "REST APIs", "Python", "Ollama"] },
+    { category: "Frontend",         items: ["Angular", "React", "TypeScript", "Tailwind CSS", "HTML/CSS"] },
+    { category: "Tools",            items: ["Git", "GitHub", "Figma", "Kubernets"] },
+    { category: "Databases",        items: ["MongoDB", "MariaDB", "PostgreSQL"] },
+  ],
+  it: [
+    { category: "Backend",          items: ["Spring boot","Java", "Node.js", "Express", "REST APIs", "Python", "Ollama"] },
+    { category: "Frontend",         items: ["Angular", "React", "TypeScript", "Tailwind CSS", "HTML/CSS"] },
+    { category: "Strumenti",        items: ["Git", "GitHub", "Figma", "Kubernets"] },
+    { category: "Database",         items: ["MongoDB", "MariaDB", "PostgreSQL"] },
+  ],
+};
+---
+
+<Layout {lang} title={`Lucas Giavelli — ${t.nav_about}`} description={t.hero_bio} currentPage="about" {t}>
+
+  <style slot="head">
+    .page-header {
+      padding: 2rem 0 4rem;
+      border-bottom: 1px solid var(--border);
+      animation: fadeUp 0.7s ease both;
+    }
+    .page-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+    }
+    .page-title em { font-style: italic; color: var(--accent); }
+
+    .section { padding: 4rem 0; border-bottom: 1px solid var(--border); animation: fadeUp 0.7s ease both; }
+    .section:last-of-type { border-bottom: none; }
+    .section > .section-title { margin-bottom: 2.5rem; }
+
+    .bio-text { font-size: 1.05rem; color: #a0a0a0; line-height: 1.9; max-width: 600px; }
+    .bio-text p + p { margin-top: 1.2rem; }
+
+    .experience-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+     }
+    .experience-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      padding: 2rem 0;
+      border-top: 1px solid var(--border);
+      align-items: start;
+    }
+    .exp-company { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .exp-role { font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent); letter-spacing: 0.05em; margin-bottom: 0.75rem; }
+    .exp-description { font-size: 0.9rem; color: #888; line-height: 1.7; max-width: 480px; }
+    .exp-period { font-family: var(--font-mono); font-size: 0.75rem; color: var(--gray); white-space: nowrap; }
+
+    .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
+    .skill-category-title {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .skill-tag {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--white);
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.75rem;
+      letter-spacing: 0.03em;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .skill-tag:hover { border-color: var(--accent); color: var(--accent); }
+
+    .interests-text { font-size: 1.05rem; color: #a0a0a0; line-height: 1.9; max-width: 600px; }
+    .interests-text p + p { margin-top: 1.2rem; }
+
+    @media (max-width: 600px) {
+      .experience-item { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+  </style>
+
+  <div class="container">
+
+    <!-- PAGE HEADER -->
+    <header class="page-header">
+      <p class="page-eyebrow">Lucas Giavelli</p>
+      <h1 class="page-title">{t.about_title_p1}<br /><em>{t.about_title_p2}</em></h1>
+    </header>
+
+    <!-- BIO -->
+    <section class="section">
+      <h2 class="section-title">{t.about_bio}</h2>
+      <div class="bio-text">
+        <p>{t.bio_p1}</p>
+        <p>{t.bio_p2}</p>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section">
+      <h2 class="section-title">{t.about_experience}</h2>
+      <ul class="experience-list">
+        {experience.map((job) => (
+          <li class="experience-item">
+            <div>
+              <h3 class="exp-company">{job.company}</h3>
+              <p class="exp-role">{job.role[lang]}</p>
+              <p class="exp-description">{job.description[lang]}</p>
+            </div>
+            <span class="exp-period">{job.period}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section">
+      <h2 class="section-title">{t.about_skills}</h2>
+      <div class="skills-grid">
+        {skills[lang].map((group) => (
+          <div>
+            <p class="skill-category-title">{group.category}</p>
+            <div class="skill-tags">
+              {group.items.map((skill) => <span class="skill-tag">{skill}</span>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- INTERESTS -->
+    <section class="section">
+      <h2 class="section-title">{t.about_interests}</h2>
+      <div class="interests-text">
+        <p>{t.interests_p1}</p>
+      </div>
+    </section>
+
+  </div>
+
+</Layout>

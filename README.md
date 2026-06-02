@@ -1,46 +1,61 @@
-# Astro Starter Kit: Basics
+# Portafolio Personal - Lucas Giavelli
 
-```sh
-npm create astro@latest -- --template basics
-```
+Portafolio personal desarrollado con Astro, diseñado para mostrar mis proyectos y habilidades como desarrollador frontend.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🎯 Acerca de este proyecto
 
-## 🚀 Project Structure
+Este portafolio está construido con [Astro](https://astro.build/) y está disponible en español, inglés e italiano. Incluye una sección de proyectos, información personal y enlaces a mis redes profesionales.
 
-Inside of your Astro project, you'll see the following folders and files:
+## 🚀 Características
+
+- **Framework**: Astro 5.x con TypeScript
+- **Estilos**: Tailwind CSS 4.x + CSS vanilla
+- **Internacionalización**: Soporte multiidioma (es, en, it)
+- **Despliegue**: GitHub Pages
+- **Optimización**: Generación estática y rendimiento optimizado
+
+## 📁 Estructura del proyecto
 
 ```text
 /
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+├── src/
+│   ├── assets/              # Archivos estáticos (imágenes, logos)
+│   │   ├── astro.svg        # Logo de Astro
+│   │   └── background.svg   # Imagen de fondo
+│   ├── components/          # Componentes reutilizables
+│   │   └── Welcome.astro    # Componente de bienvenida
+│   ├── i18n/               # Archivos de traducción
+│   │   ├── es.ts           # Traducciones en español
+│   │   ├── en.ts           # Traducciones en inglés
+│   │   └── it.ts           # Traducciones en italiano
+│   ├── layouts/            # Layouts base de páginas
+│   │   └── Layout.astro     # Layout principal
+│   ├── pages/              # Páginas del sitio
+│   │   └── index.astro      # Página de inicio
+│   └── styles/             # Estilos globales
+│       └── global.css       # CSS global con variables
+├── dist/                  # Build de producción (generado)
+├── public/               # Archivos estáticos
+│   └── favicon.svg        # Icono del sitio
+├── package.json          # Dependencias y scripts
+└── astro.config.mjs      # Configuración de Astro
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🧞 Comandos disponibles
 
-## 🧞 Commands
+| Comando            | Acción                                           |
+| :----------------- | :----------------------------------------------- |
+| `npm install`      | Instala dependencias                             |
+| `npm run dev`      | Inicia servidor local en `localhost:4321`        |
+| `npm run build`    | Genera sitio estático en `./dist/`              |
+| `npm run preview`  | Previsualiza el build localmente                 |
+| `npm run astro`    | Comandos CLI de Astro                            |
 
-All commands are run from the root of the project, from a terminal:
+## 🚀 Despliegue
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+El proyecto se despliega automáticamente en GitHub Pages usando GitHub Actions.
 
-## 👀 Want to learn more?
+## 📚 Más información
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- [Astro Documentation](https://docs.astro.build)
+- [GitHub Repository](https://github.com/Nbks/mi-portafolio)
