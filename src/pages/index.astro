@@ -1,0 +1,26 @@
+---
+import '../styles/global.css';
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lucas Giavelli — Portfolio</title>
+  <meta http-equiv="refresh" content="0; url=/es" />
+  <link rel="icon" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body class="bg-black text-white font-body antialiased min-h-screen flex items-center justify-center">
+  <div role="status" aria-live="polite" class="flex flex-col items-center gap-8 animate-fade-up">
+    <div class="w-10 h-10 border-2 border-border border-t-accent rounded-full animate-spin" />
+    <p class="font-display text-2xl animate-pulse">Cargando...</p>
+  </div>
+  <script>
+    window.location.replace('/es');
+  </script>
+</body>
+</html>
