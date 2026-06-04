@@ -12,9 +12,9 @@ export const projects: Project[] = [
     title: "Launch",
     year: "2026",
     description: {
-      es: "Plataforma de ventas online con carrito, pagos y panel de administración.",
+      es: "Herramienta CLI simple para gestionar y abrir proyectos de desarrollo con perfiles de herramientas predefinidos.",
       en: "A simple CLI tool to manage and open development projects with predefined tool profiles.",
-      it: "Piattaforma di vendita online con carrello, pagamenti e pannello di amministrazione.",
+      it: "Semplice strumento CLI per gestire e aprire progetti di sviluppo con profili di strumenti predefiniti.",
     },
     tags: ["Go", "CLI"],
     url: "https://github.com/Nbks/launch",
@@ -24,9 +24,9 @@ export const projects: Project[] = [
     title: "English Coach",
     year: "2026",
     description: {
-      es: "App de gestión de tareas con drag & drop, etiquetas y sincronización en tiempo real.",
+      es: "Herramienta CLI personal en Python para transcribir, analizar y registrar tu práctica diaria de speaking en inglés. Registra tu progreso con feedback detallado de IA.",
       en: "A personal Python CLI tool to transcribe, analyze, and track your daily English-speaking practice videos. Records your progress over time with detailed AI feedback.",
-      it: "App di gestione attività con drag & drop, etichette e sincronizzazione in tempo reale.",
+      it: "Strumento CLI personale in Python per trascrivere, analizzare e tenere traccia della tua pratica quotidiana di speaking in inglese. Registra i tuoi progressi con feedback dettagliato dell'IA.",
     },
     tags: ["Python", "CLI", "AI"],
     url: "https://github.com/Nbks/english-coach",

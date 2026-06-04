@@ -22,7 +22,7 @@ export const translations = {
   about_title_p1: "Sobre",
   about_title_p2: "mí.",
   about_skills: "skills",
-  about_experience: "experince",
+  about_experience: "experience",
   about_bio: "Desarrollador full-stack basado en Turín, formado en Argentina e Italia.",
   bio_p1: "Soy un programador argentino radicado en Turín. Estudié ingeniería en Argentina y me especialicé en sistemas backend en Italia, un camino que me ha dado tanto una base técnica sólida como la flexibilidad para adaptarme a distintos entornos y equipos.",
   bio_p2: "Actualmente trabajo en una empresa de software, donde vengo manejando diversas áreas desde hace más de dos años: desarrollo, despliegues, automatización y diseño de software. Me he acostumbrado a alternar entre distintas responsabilidades y a tener una visión más amplia del proyecto que va más allá del código.",
