@@ -16,7 +16,11 @@ const { lang, title, description, image, currentPage = 'home', t } = Astro.props
 
 const siteUrl = 'https://lucasgiavelli.site';
 const pageUrl = `${siteUrl}/${lang}${currentPage === 'about' ? '/about' : ''}`;
-const ogImage = image ?? `${siteUrl}/og-default.png`;
+const ogImage = image
+  ? image.startsWith('http')
+    ? image
+    : new URL(image, Astro.site).toString()
+  : new URL('/og-image-default.jpg', Astro.site).toString();
 ---
 
 <!DOCTYPE html>
@@ -27,6 +31,13 @@ const ogImage = image ?? `${siteUrl}/og-default.png`;
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={pageUrl} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:url" content={pageUrl} />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content={lang} />
+  <meta property="og:site_name" content="NBKS Portfolio" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="icon" href={favicon.src} />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
