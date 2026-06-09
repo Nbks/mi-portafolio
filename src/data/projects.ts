@@ -18,7 +18,6 @@ export const projects: Project[] = [
     },
     tags: ["Go", "CLI"],
     url: "https://github.com/Nbks/launch",
-    demo: "https://demo.com",
   },
   {
     title: "English Coach",
