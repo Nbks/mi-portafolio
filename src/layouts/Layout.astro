@@ -20,8 +20,8 @@ const pageUrl = `${siteUrl}/${lang}${currentPage === 'about' ? '/about' : ''}`;
 const ogImage = image
   ? image.startsWith('http')
     ? image
-    : new URL(image, Astro.site).toString()
-  : new URL(profileImg.src, Astro.site).toString();
+    : new URL(image, siteUrl).toString()
+  : new URL(profileImg.src, siteUrl).toString();
 ---
 
 <!DOCTYPE html>
@@ -38,7 +38,7 @@ const ogImage = image
   <meta property="og:url" content={pageUrl} />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content={lang} />
-  <meta property="og:site_name" content="NBKS Portfolio" />
+  <meta property="og:site_name" content="Lucas Portfolio" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="icon" href={favicon.src} />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
