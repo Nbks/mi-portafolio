@@ -2,6 +2,7 @@
 import type { Locale } from '../i18n/utils';
 import '../styles/global.css';
 import favicon from '../assets/favicon.svg';
+import profileImg from '../assets/profile.jpeg';
 
 interface Props {
   lang: Locale;
@@ -20,7 +21,7 @@ const ogImage = image
   ? image.startsWith('http')
     ? image
     : new URL(image, Astro.site).toString()
-  : new URL('/og-image-default.jpg', Astro.site).toString();
+  : new URL(profileImg.src, Astro.site).toString();
 ---
 
 <!DOCTYPE html>
