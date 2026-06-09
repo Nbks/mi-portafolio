@@ -15,13 +15,13 @@ interface Props {
 
 const { lang, title, description, image, currentPage = 'home', t } = Astro.props;
 
-const siteUrl = 'https://lucasgiavelli.site';
+const siteUrl = Astro.site.toString();
 const pageUrl = `${siteUrl}/${lang}${currentPage === 'about' ? '/about' : ''}`;
 const ogImage = image
   ? image.startsWith('http')
     ? image
-    : new URL(image, siteUrl).toString()
-  : new URL(profileImg.src, siteUrl).toString();
+    : new URL(image, Astro.site).toString()
+  : new URL(profileImg.src, Astro.site).toString();
 ---
 
 <!DOCTYPE html>

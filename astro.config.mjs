@@ -8,7 +8,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-  site: 'https://Nbks.github.io',
+  site: 'https://lucasgiavelli.site',
   base: '/', 
   i18n: {
   defaultLocale: 'es',
