@@ -14,7 +14,7 @@ interface Props {
 
 const { lang, title, description, image, currentPage = 'home', t } = Astro.props;
 
-const siteUrl = 'https://Nbks.github.io';
+const siteUrl = 'https://lucasgiavelli.site';
 const pageUrl = `${siteUrl}/${lang}${currentPage === 'about' ? '/about' : ''}`;
 const ogImage = image ?? `${siteUrl}/og-default.png`;
 ---
